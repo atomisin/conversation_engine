@@ -1,0 +1,26 @@
+[
+  {
+    "id": "sku-lip-001",
+    "name": "Matte Lipstick - Ruby",
+    "category": "cosmetics",
+    "base_price": 8500,
+    "currency": "NGN",
+    "stock": 42
+  },
+  {
+    "id": "sku-cre-101",
+    "name": "Shea Butter Body Cream",
+    "category": "beauty",
+    "base_price": 6500,
+    "currency": "NGN",
+    "stock": 80
+  },
+  {
+    "id": "sku-snk-901",
+    "name": "Street Sneaker - Black",
+    "category": "fashion",
+    "base_price": 21500,
+    "currency": "NGN",
+    "stock": 15
+  }
+]
