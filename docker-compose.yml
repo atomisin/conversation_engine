@@ -1,0 +1,14 @@
+services:
+  fasttext:
+    build:
+      context: .
+      dockerfile: services/conversation_engine/src/core/Dockerfile
+    image: conv-engine-fasttext:latest
+    container_name: conversation-engine-fasttext
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./services/conversation_engine/models/lid.176.ftz:/models/lid.176.ftz:ro
+    environment:
+      - FASTTEXT_MODEL_PATH=/models/lid.176.ftz
+      - FASTTEXT_SERVICE_TIMEOUT=2.0

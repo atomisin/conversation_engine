@@ -1,0 +1,6 @@
+{
+    "python.analysis.extraPaths": [
+        "./services/conversation_engine/src",
+        "./services/conversation_engine/src/core"
+    ]
+}

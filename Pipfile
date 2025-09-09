@@ -4,15 +4,16 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-fastapi = "*"
-uvicorn = "*"
 datasets = "*"
 transformers = "*"
 peft = "*"
 bitsandbytes = "*"
 accelerate = "*"
-pydantic = "*"
+dotenv = "*"
+fastapi = "*"
 fasttext = "*"
+pydantic = "*"
+uvicorn = {extras = ["standard"], version = "*"}
 
 [dev-packages]
 pytest = "*"

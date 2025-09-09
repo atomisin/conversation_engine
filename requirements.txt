@@ -1,0 +1,4 @@
+fastapi
+uvicorn[standard]
+fasttext
+pydantic

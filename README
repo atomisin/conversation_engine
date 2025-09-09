@@ -1,1 +1,19 @@
+conversation-engine/
+├── docker-compose.yml
+├── Pipfile
+├── Pipfile.lock
+├── requirements.txt       <-- root-level, used by Docker
+├── app.py                 <-- root-level, main FastText API
+├── services/
+│   ├── conversation_engine/
+│   │   ├── models/
+│   │   │   └── lid.176.ftz
+│   │   └── src/
+│   │       └── core/
+│   │           └── language_detection.py
+│   
+│
+└── notebooks/, data/, logs/, etc.
 
+
+pytest -v services/tests
