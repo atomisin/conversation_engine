@@ -1,0 +1,6 @@
+fastapi
+uvicorn[standard]
+fasttext
+pydantic
+pytest
+# transformer

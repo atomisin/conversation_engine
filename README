@@ -1,0 +1,64 @@
+conversation-engine/
+├── docker-compose.yml
+├── Pipfile
+├── Pipfile.lock
+├── requirements.txt       <-- root-level, used by Docker
+├── app.py                 <-- root-level, main language-detection API
+├── services/
+│   ├── conversation_engine/
+|   |   |   ├── data/
+|   |   |   |    └── product_catalog.json
+|   |   |   |    └── prompts_sample.jsonl
+│   │   |   ├── models/
+│   │   │   |    └── lid.176.ftz
+|   |   |   ├── scripts/
+|   |   |   |    └── distill_to_7b.models
+|   |   |   |    └── quantization.md
+|   |   |   |    └── test_language-detection.py
+|   |   |   |    └── train_lora_13b.py
+│   │       ├── src/
+│   │   |        └── core/
+|   |   |   |         └── __init__.py
+|   |   |   |         └── amount_parser.py
+|   |   |   |         └── conversation_engine.py
+|   |   |   |         └── cultural_intelligence.py
+|   |   |   |         └── decision_model.py
+|   |   |   |         └── Dockerfile
+|   |   |   |         └── intent_classifier.py
+│   │   |   |         └── language_detection.py
+|   |   |   |         └── llm_phraser.py
+|   |   |   |         └── models.py
+|   |   |   |         └── price_guard.py
+|   |   |   |         └── product_catalog.py
+|   |   |   |         └── state_store.py
+|   |   |   |         └── utils.py 
+│   |   |   └── __init__.py
+│   |   └── tests
+|   |   └── __init__.py
+|   └── .dockerignore
+|   └── .env
+|   └── .gitignore
+|   └── app.py
+|   └── docker-compose.yml
+|   └── Pipfile
+|   └── Pipfile.lock
+|   └── README
+└── requirements.txt
+
+# Test language detect microservice
+PYTHONPATH=services/conversation_engine/src pipenv run python services/conversation_engine/scripts/test_language-detection.py
+
+docker compose build --no-cache negotiation language-detection
+docker compose up --no-deps language-detection negotiation
+docker compose logs -f negotiation
+
+curl -sS -X POST "http://localhost:9000/decide" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "offer": 5000,
+    "product": {"id":"sku-lip-001","name":"Matte Lipstick - Ruby","base_price":12000},
+    "state": {"conversation_id":"t1","user_id":"u1", "meta": {"buyer_text": "I fit pay 5000"}}
+  }' | jq
+
+
+

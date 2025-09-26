@@ -1,0 +1,22 @@
+.git
+.gitignore
+.vscode
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+*.log
+*.sqlite3
+env/
+venv/
+node_modules/
+# services/tests
+tests
+docs/
+*.md
+*.pdf
+docker-compose*.yml
+.DS_Store
+Pipfile
+Pipfile.lock
+secrets/
